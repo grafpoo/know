@@ -95,69 +95,17 @@ class _MyHomePageState extends State<MyHomePage> {
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Radio(
-                value: 0,
-                groupValue: _radioChoice,
-                onChanged: _handleRadioValueChange1,
-              ),
-              new Text(
-                InsigniaLists().services[0],
-                style: new TextStyle(fontSize: 16.0),
-              ),
-              new Radio(
-                value: 1,
-                groupValue: _radioChoice,
-                onChanged: _handleRadioValueChange1,
-              ),
-              new Text(
-                InsigniaLists().services[1],
-                style: new TextStyle(
-                  fontSize: 16.0,
-                ),
-              ),
-              new Radio(
-                value: 2,
-                groupValue: _radioChoice,
-                onChanged: _handleRadioValueChange1,
-              ),
-              new Text(
-                InsigniaLists().services[2],
-                style: new TextStyle(fontSize: 16.0),
-              ),
+              buildRadioListTile(0),
+              buildRadioListTile(1),
+              buildRadioListTile(2),
             ],
           ),
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Radio(
-                value: 3,
-                groupValue: _radioChoice,
-                onChanged: _handleRadioValueChange1,
-              ),
-              new Text(
-                InsigniaLists().services[3],
-                style: new TextStyle(fontSize: 16.0),
-              ),
-              new Radio(
-                value: 4,
-                groupValue: _radioChoice,
-                onChanged: _handleRadioValueChange1,
-              ),
-              new Text(
-                InsigniaLists().services[4],
-                style: new TextStyle(
-                  fontSize: 16.0,
-                ),
-              ),
-              new Radio(
-                value: 5,
-                groupValue: _radioChoice,
-                onChanged: _handleRadioValueChange1,
-              ),
-              new Text(
-                InsigniaLists().services[5],
-                style: new TextStyle(fontSize: 16.0),
-              ),
+              buildRadioListTile(3),
+              buildRadioListTile(4),
+              buildRadioListTile(5),
             ],
           ),
 
@@ -253,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       })
               ),
               Expanded(
-                  child: RaisedButton(
+                  child: ElevatedButton(
                       child: Text("Study"),
                       onPressed: () {
                         Navigator.push(
@@ -268,6 +216,25 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
+    );
+  }
+
+  Text buildText(String text) {
+    var textStyle = new TextStyle(fontSize: 14.0);
+    return new Text(
+                text,
+                style: textStyle,
+              );
+  }
+
+  Widget buildRadioListTile(int x) {
+    return new Expanded (
+      child: new RadioListTile(
+        value: x,
+        groupValue: _radioChoice,
+        onChanged: _handleRadioValueChange1,
+        title: buildText(InsigniaLists().services[x]),
+      )
     );
   }
 
