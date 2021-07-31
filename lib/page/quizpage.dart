@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:know/display/pagetemplate.dart';
 import 'package:know/model/insignialists.dart';
+import 'package:know/model/preferences.dart';
 import 'dart:math';
 
 const double _imageHeight = 180.0;
@@ -10,11 +11,14 @@ var _rng = new Random();
 class QuizPage extends StatefulWidget {
   String title = "Quiz";
 
+  MyPreferences preferences = MyPreferences();
+
   @override
   QuizPageState createState() => QuizPageState();
 }
 
 class QuizPageState extends State<QuizPage> {
+
   static int _startInsigniaListIndex = _rng.nextInt(InsigniaLists().currentInsigniaList.length);
   int _currentInsigniaListIndex = _startInsigniaListIndex;
   int _currentInsigniaIndex = _rng.nextInt(InsigniaLists().currentInsigniaList[_startInsigniaListIndex].length);
