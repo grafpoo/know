@@ -34,6 +34,7 @@ class MyPreferences with ChangeNotifier {
 
   void _load() => _store(load: true);
   void save() => _store();
+
   //
   // helper to do the actual storage-related tasks
   //  handles both initial-load & save since they only differ by essentially 1 line

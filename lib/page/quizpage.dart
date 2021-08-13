@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:know/display/pagetemplate.dart';
 import 'package:know/model/insignialists.dart';
-import 'package:know/model/preferences.dart';
+import 'package:know/model/mypreferences.dart';
 import 'dart:math';
 
 const double _imageHeight = 180.0;
