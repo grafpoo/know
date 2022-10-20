@@ -33,7 +33,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold (
-        backgroundColor: Colors.grey.shade900,
+        // backgroundColor: Colors.grey.shade900,
+        appBar: AppBar(
+          title: Text("Know Your Insignia"),
+          actions: <Widget>[
+            PopupMenuButton(itemBuilder: (BuildContext context) {
+              return List.of([
+                new PopupMenuItem(
+                  child: PreferencePage(),
+                ),
+                new PopupMenuItem(
+                    child: QuizPage(),
+                ),
+              ]);
+            })
+          ],
+        ),
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
